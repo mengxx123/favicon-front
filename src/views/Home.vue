@@ -47,7 +47,26 @@
                 }
             }
         },
+        mounted() {
+            this.init()
+        },
         methods: {
+            init() {
+                this.initWebIntents()
+            },
+            initWebIntents() {
+                if (!window.intent) {
+                    return
+                }
+                this.isWebIntent = true
+                // console.log(window.intent.data)
+                // let data = window.intent.data
+                // if (data instanceof Array) {
+                //     this.loadDataUrl(data[0].url)
+                // } else {
+                //     this.loadDataUrl(data)
+                // }
+            },
             make() {
                 let files = document.getElementById('file').files
                 console.log(files)
